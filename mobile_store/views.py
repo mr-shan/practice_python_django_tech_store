@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 
 from .models import Mobile
@@ -13,15 +13,24 @@ def index(request):
     })
 
 
-def mobile_details(request, id):
-    try:
-        mobile = Mobile.objects.get(pk=id)
-        return render(request, "mobile_store/mobile_details.html", {
-            "name": mobile.name,
-            "make": mobile.make,
-            "price": mobile.price,
-            "rating": mobile.rating,
-            "is_recommended": mobile.is_recommended
-        })
-    except:
-        raise Http404
+def mobile_details(request, slug):
+    # try:
+    #     mobile = Mobile.objects.get(slug=slug)
+    #     return render(request, "mobile_store/mobile_details.html", {
+    #         "name": mobile.name,
+    #         "make": mobile.make,
+    #         "price": mobile.price,
+    #         "rating": mobile.rating,
+    #         "is_recommended": mobile.is_recommended
+    #     })
+    # except:
+    #     raise Http404
+    mobile = get_object_or_404(Mobile, slug=slug)
+    return render(request, "mobile_store/mobile_details.html", {
+        "name": mobile.name,
+        "make": mobile.make,
+        "price": mobile.price,
+        "rating": mobile.rating,
+        "is_recommended": mobile.is_recommended
+    })
+    
