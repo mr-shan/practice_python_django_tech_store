@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mobiles Store{% endblock title %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'mobile_store/index.css' %}">
+{% endblock static %}
+
+{% block body %}
+    <h1 class="heading">Mobiles Store</h1>
+    <ul>
+        {% for mobile in mobiles %}
+            {% comment %} <li><a href="{% url 'mobile_details' mobile.id %}">{{ mobile.make }} {{ mobile.name }}</a></li> {% endcomment %}
+            <li><a href="{{ mobile.get_absolute_url }}">{{ mobile.make }} {{ mobile.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock body %}
