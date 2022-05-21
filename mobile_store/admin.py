@@ -1,8 +1,9 @@
 from django.contrib import admin
 
-from .models import Mobile
+from .models import Mobile, Company
 
 # Register your models here.
+
 
 @admin.register(Mobile)
 class MobileAdmin(admin.ModelAdmin):
@@ -12,3 +13,8 @@ class MobileAdmin(admin.ModelAdmin):
 
 # we can also use decorators to register MobileAdmin class with admin
 # admin.site.register(Mobile, MobileAdmin)
+
+
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'country')

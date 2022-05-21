@@ -1,0 +1,39 @@
+.mobile-wrapper {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: solid 1px #999;
+  margin: auto;
+  user-select: none;
+}
+
+.mobile-wrapper:hover {
+  background-color: #444;
+}
+
+.mobile-item-img {
+  background-position: center;
+  background-size: contain;
+  height: 8rem;
+}
+
+.mobile-item-content {
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.mobile-item-title,
+.mobile-item-price,
+.mobile-item-view-details-btn {
+    margin: 0.3rem;
+}
+
+.mobile-item-view-details-btn {
+  text-decoration: underline;
+  align-self: flex-end;
+  justify-self: flex-end;
+  margin-top: 1rem;
+}

@@ -28,7 +28,7 @@ def mobile_details(request, slug):
     mobile = get_object_or_404(Mobile, slug=slug)
     return render(request, "mobile_store/mobile_details.html", {
         "name": mobile.name,
-        "make": mobile.make,
+        "make": mobile.make.name,
         "price": mobile.price,
         "rating": mobile.rating,
         "is_recommended": mobile.is_recommended

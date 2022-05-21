@@ -4,14 +4,17 @@
 {% block title %}Mobiles Store{% endblock title %}
 {% block static %}
     <link rel="stylesheet" href="{% static 'mobile_store/index.css' %}">
+    <link rel="stylesheet" href="{% static 'mobile_store/mobile_item.css' %}">
 {% endblock static %}
 
 {% block body %}
-    <h1 class="heading">Mobiles Store</h1>
+    <h1 class="heading">The Mobiles Store</h1>
+    <br>
     <ul>
         {% for mobile in mobiles %}
-            {% comment %} <li><a href="{% url 'mobile_details' mobile.id %}">{{ mobile.make }} {{ mobile.name }}</a></li> {% endcomment %}
-            <li><a href="{{ mobile.get_absolute_url }}">{{ mobile.make }} {{ mobile.name }}</a></li>
+            <a href="{{ mobile.get_absolute_url }}">            
+                {% include 'mobile_store/partials/mobile_item.html' %}
+            </a>
         {% endfor %}
     </ul>
 {% endblock body %}

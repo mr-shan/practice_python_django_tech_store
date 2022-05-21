@@ -1,0 +1,13 @@
+{% load static %}
+
+<li class="mobile-wrapper">
+    <img src="{{ mobile.image }}" alt="mobile_icon" class="mobile-item-img">
+    <div class="mobile-item-content">
+        <h3 class="mobile-item-title">{{ mobile.make }} {{ mobile.name }}</h3>
+        <p class="mobile-item-price">
+            <span>Price: </span>
+            <strong>{{ mobile.price }}</strong>
+        </p>
+        <p class="mobile-item-view-details-btn">View Details</p>
+    </div>
+</li>

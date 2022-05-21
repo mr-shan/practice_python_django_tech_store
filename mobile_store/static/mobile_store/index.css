@@ -1,32 +1,22 @@
 a {
   color: #eee;
-  background: #666;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
-  display: block;
   text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: -1px -1px 2px 1px #111, 1px 1px 2px 1px #aaa;
-}
-
-a:hover {
-    background-color: #777;
+  transition: all 0.1s;
+  background: transparent;
+  width: 25rem;
+  display: block;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-
-li {
-    margin: 0.3rem 1rem;
-    width: 20rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
 }
