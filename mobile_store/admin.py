@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Mobile, Company
+from .models import Mobile, Company, Country
 
 # Register your models here.
 
@@ -18,3 +18,5 @@ class MobileAdmin(admin.ModelAdmin):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'country')
+
+admin.site.register(Country)
