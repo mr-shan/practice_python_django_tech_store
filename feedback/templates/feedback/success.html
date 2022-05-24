@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success</title>
-</head>
-<body>
-    <h2>Added your review successfully!!</h2>
-</body>
-</html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Success{% endblock title %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'feedback/success.css' %}">
+{% endblock static %}
+
+{% block body %}
+    <div class="main-body">
+        <h1 class="heading">The Mobiles Store</h1>
+        
+        <h3 class="subtitle">Thank you!</h3>
+        <p>{{ message }}</p>
+    </div>
+{% endblock body %}

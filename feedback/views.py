@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
+from django.views.generic.base import TemplateView
+from django.views.generic import DetailView
 
 from .form import ReviewForm
 from .models import ReviewModel
@@ -37,8 +39,32 @@ class ReviewView(View):
         review.save()
 
 
-def success(request):
-    return render(request, "feedback/success.html")
+class SuccessView(TemplateView):
+    template_name = "feedback/success.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "Your review is submitted successfully!"
+        return context
+
+
+class ReviewListView(TemplateView):
+    template_name = "feedback/review_list.html"
+
+    def get_context_data(self, **kwargs):
+        reviews = ReviewModel.objects.all().order_by('-pk')
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = reviews
+        return context
+
+
+class ReviewDetailsView(DetailView):
+    template_name = "feedback/review-details.html"
+    model: ReviewModel
+
+
+# def success(request):
+#     return render(request, "feedback/success.html")
 
 
 # Creating method instead of class.

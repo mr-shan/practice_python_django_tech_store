@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Reviews{% endblock title %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'feedback/review_list.css' %}">
+{% endblock static %}
+
+{% block body %}
+    <div class="main-body">
+        <h1 class="heading">The Mobiles Store</h1>
+        
+        <h3 class="subtitle">Review Details</h3>
+        <h4 class="review-title">
+            <span>{{ review.name }} </span>
+            <span class="rating">{{ review.rating }} / 5</span>
+        </h4>
+        <p>{{ review.email }}</p>
+        <p>{{ review.text }}</p>
+    </div>
+{% endblock body %}
