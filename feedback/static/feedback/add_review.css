@@ -1,0 +1,76 @@
+.form-wrapper {
+    background: #666;
+    border-radius: 10px;
+    margin: 1rem auto;
+    max-width: 30rem;
+    width: 80%;
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+    color: white;
+    background: rgb(85, 85, 255);
+    margin: 0;
+    padding: 1.5rem 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 2px 10px #333;
+}
+
+h3 {
+    margin-top: 2rem;
+}
+
+hr {
+    border: none;
+    border-bottom: solid 2px rgb(85, 85, 255);
+}
+
+.input-wrapper {
+    padding: 1rem;
+}
+
+.input-wrapper label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.input-wrapper input, textarea {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: solid 1px #999;
+    outline: none;
+    width: 95%;
+}
+
+.input-wrapper input:active, textarea:active, .input-wrapper input:focus, textarea:focus {
+    background-color: rgb(219, 220, 251);
+    border: solid 1px rgb(85, 85, 255);;
+}
+
+.form-wrapper button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: rgb(85, 85, 255);
+    outline: none;
+    color: white;
+    border: solid 1px rgb(60, 60, 255);
+    font-size: 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.form-wrapper button:hover {
+    background: rgb(70, 70, 220);
+}
+
+.errorlist {
+    margin: 0.5rem 0;
+    padding: 0;
+    list-style: none;
+    color: rgb(255, 95, 95);
+    text-align: left;
+    font-size: 14px;
+}

@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Review{% endblock title %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'feedback/add_review.css' %}">
+{% endblock static %}
+
+{% block body %}
+    <div class="form-wrapper">
+        <h1 class="heading">The Mobiles Store</h1>
+        
+        <h3 class="subtitle">Add your review here</h3>
+            
+        <form method="POST" action="/feedback/post-review">   
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="input-wrapper">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            <button class="submit-button" type="submit">Add Review</button>
+        </form>
+    </div>
+{% endblock body %}

@@ -33,7 +33,7 @@ class Mobile(models.Model):
         default="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Icons8_flat_cell_phone.svg/768px-Icons8_flat_cell_phone.svg.png")
     slug = models.SlugField(
         default="", null=False, db_index=True, unique=True, blank=True)
-    released_countries = models.ManyToManyField(Country)
+    released_countries = models.ManyToManyField(Country, related_name="Countries")
 
     def save(self, *args, **kwargs):
         self.slug = slugify(f"{self.make} {self.name}")
