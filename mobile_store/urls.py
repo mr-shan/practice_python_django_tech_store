@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.index),
-    path("<slug:slug>", views.mobile_details, name="mobile_details")
+    path("mobiles/add-new/", views.AddMobileView.as_view()),
+    path("<slug:slug>", views.mobile_details, name="mobile_details"),
 ]

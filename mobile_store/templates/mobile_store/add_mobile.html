@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Review{% endblock title %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'mobile_store/add_mobile.css' %}">
+{% endblock static %}
+
+{% block body %}
+    <div class="form-wrapper">
+        <h1 class="heading">The Mobiles Store</h1>
+        
+        <h3 class="subtitle">Add your review here</h3>
+            
+        <form method="POST" action="/mobiles/add-new/" enctype="multipart/form-data">   
+            {% csrf_token %}
+            <label for="image"></label>
+            <input name="image" id="image" type="file">
+            <button class="submit-button" type="submit">Add Review</button>
+        </form>
+    </div>
+{% endblock body %}

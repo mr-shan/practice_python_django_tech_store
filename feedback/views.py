@@ -58,9 +58,16 @@ class ReviewListView(TemplateView):
         return context
 
 
-class ReviewDetailsView(DetailView):
+class ReviewDetailsView(TemplateView):
     template_name = "feedback/review-details.html"
     model: ReviewModel
+
+    def get_context_data(self, **kwargs):
+        review = ReviewModel.objects.get(pk=kwargs['pk'])
+        context = super().get_context_data(**kwargs)
+        context["review"] = review
+        return context
+    
 
 
 # def success(request):

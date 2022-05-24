@@ -1,5 +1,7 @@
+from operator import mod
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
+from django.views import View
 
 from .models import Mobile
 
@@ -33,4 +35,18 @@ def mobile_details(request, slug):
         "rating": mobile.rating,
         "is_recommended": mobile.is_recommended
     })
-    
+
+
+def store_file(file):
+    with open("temp/image.png", mode="wb+") as nFile:
+        for chunk in file.chunks():
+            nFile.write(chunk)
+
+
+class AddMobileView(View):
+    def get(self, request):
+        return render(request, "mobile_store/add_mobile.html")
+
+    def post(self, request):
+        store_file(request.FILES['image'])
+        return HttpResponseRedirect("/mobiles/add-new/")

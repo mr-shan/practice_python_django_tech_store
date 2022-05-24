@@ -17,10 +17,24 @@ ul {
     padding: 0;
 }
 
-li {
+li, .review-details {
     margin: 10px auto;
     text-align: left;
     max-width: 30rem;
+}
+
+.review-details {
+    background: #666;
+    border-radius: 10px;
+    max-width: 30rem;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px #222;
+
+}
+
+.review-details > h4 {
+    font-size: 2rem;
 }
 
 .review-title {

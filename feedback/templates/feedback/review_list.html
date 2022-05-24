@@ -15,7 +15,7 @@
         <ul>
             {% for review in reviews %}
                 <li>
-                    <a href="{% url 'success' %}">
+                    <a href="{% url 'review-details' review.pk %}">
                         <h4 class="review-title">
                             <span>{{ review.name }} </span>
                             <span class="rating">{{ review.rating }} / 5</span>
