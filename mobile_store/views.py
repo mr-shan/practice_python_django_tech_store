@@ -1,5 +1,4 @@
-from operator import mod
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404, HttpResponseRedirect
 from django.views import View
 
@@ -36,6 +35,7 @@ def mobile_details(request, slug):
     
     if request.method == "POST":
         request.session["favorite-phone-id"] = mobile.pk
+        return redirect(to="/")
         
     favorite_phone_id = request.session.get("favorite-phone-id")
     
