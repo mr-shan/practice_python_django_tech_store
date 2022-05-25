@@ -1,15 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ make }} {{ name }} Details{% endblock title %}
 
+{% block static %}
+    <link rel="stylesheet" href="{% static 'mobile_store/index.css' %}">
+{% endblock static %}
+
 {% block body %}
+    <h1 class="heading">The Mobiles Store</h1>
     <div class="tile" style="margin-top: 2rem">
-        <h1 class="heading">{{ make }} {{ name }}</h1>
+        <h1 class="">{{ make }} {{ name }}</h1>
         <h3>Price: {{ price }} </h3>
         {% if rating %}
             <p>Our rating: {{rating }} / 10</p>
         {% else %}
             <p>We haven't rated this phone yet</p>
+        {% endif %}
+        
+        <br>
+        {% if is_favorite %}
+            <p style="color: rgb(196, 48, 196);">This is your favourite phone.</p>
+        {% else %}            
+            <form action="" method="post">
+                {% csrf_token %}
+                <button class="add-favorite" type="submit">Mark as Favorite</button>
+            </form>
         {% endif %}
     </div>
 {% endblock body %}

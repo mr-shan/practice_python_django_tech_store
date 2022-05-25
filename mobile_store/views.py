@@ -10,8 +10,12 @@ from .models import Mobile
 
 def index(request):
     all_mobiles = Mobile.objects.all().order_by('make')
+    
+    favorite_phone_id = request.session.get("favorite-phone-id")
+    
     return render(request, "mobile_store/index.html", {
-        "mobiles": all_mobiles
+        "mobiles": all_mobiles,
+        "favorite_phone_id": favorite_phone_id 
     })
 
 
@@ -27,13 +31,21 @@ def mobile_details(request, slug):
     #     })
     # except:
     #     raise Http404
+    
     mobile = get_object_or_404(Mobile, slug=slug)
+    
+    if request.method == "POST":
+        request.session["favorite-phone-id"] = mobile.pk
+        
+    favorite_phone_id = request.session.get("favorite-phone-id")
+    
     return render(request, "mobile_store/mobile_details.html", {
         "name": mobile.name,
         "make": mobile.make.name,
         "price": mobile.price,
         "rating": mobile.rating,
-        "is_recommended": mobile.is_recommended
+        "is_recommended": mobile.is_recommended,
+        "is_favorite": favorite_phone_id == mobile.pk
     })
 
 

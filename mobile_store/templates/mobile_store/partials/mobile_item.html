@@ -1,6 +1,9 @@
 {% load static %}
 
 <li class="mobile-wrapper">
+    {% if favorite_phone_id == mobile.pk %}
+        <p class="favorite-icon">&#9733;</p>
+    {% endif %}
     <img src="{{ mobile.image }}" alt="mobile_icon" class="mobile-item-img">
     <div class="mobile-item-content">
         <h3 class="mobile-item-title">{{ mobile.make }} {{ mobile.name }}</h3>
